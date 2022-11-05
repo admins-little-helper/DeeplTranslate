@@ -1,0 +1,79 @@
+
+NAME
+    Get-DeeplGlossarySupportedLanguagePair
+    
+SYNOPSIS
+    Retrieves a list of supported language pairs that can be used in a glossary.
+    
+    
+SYNTAX
+    Get-DeeplGlossarySupportedLanguagePair [[-ApiKey] <String>] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplGlossarySupportedLanguagePair' function retrieves a list of supported language pairs that can be used in a glossary.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    false
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplGlossarySupportedLanguagePair -ApiKey "<MyApiKey>"
+    
+    source_lang target_lang
+    ----------- -----------
+    de          en
+    de          fr
+    en          de
+    en          es
+    en          fr
+    en          ja
+    en          it
+    en          pl
+    en          nl
+    es          en
+    fr          de
+    fr          en
+    ja          en
+    it          en
+    pl          en
+    nl          en
+    
+    This example shows how to retrieve a list supported languages for glossaries.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossarySupportedLanguagePair.txt
+
+

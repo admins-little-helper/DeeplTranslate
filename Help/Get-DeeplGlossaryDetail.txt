@@ -1,0 +1,102 @@
+
+NAME
+    Get-DeeplGlossaryDetail
+    
+SYNOPSIS
+    Retrieves a glossary and its meta-information, but not the glossary entries.
+    
+    
+SYNTAX
+    Get-DeeplGlossaryDetail [-ApiKey] <String> [-GlossaryId] <Guid[]> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplGlossaryDetail' function retrieves a glossary and its meta-information, but not the glossary entries.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -GlossaryId <Guid[]>
+        The glossary id for which you want to retrieve information.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.Guid for parameter 'GlossaryID'
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplGlossaryDetail -ApiKey "<MyApiKey>" -GlossaryId 46fd68a5-63cc-42b2-86f0-5b84bfd4bbd3
+    
+    glossary_id   : 46fd68a5-63cc-42b2-86f0-5b84bfd4bbd3
+    name          : My Glossary
+    ready         : True
+    source_lang   : en
+    target_lang   : de
+    creation_time : 29.10.2022 21:06:35
+    entry_count   : 1
+    
+    This example shows how to retrieve details for a glossary.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    "46fd68a5-63cc-42b2-86f0-5b84bfd4bbd3", "66d06460-29b5-46c4-b822-c2c7c1494088" | Get-DeeplGlossaryDetail -Verbose -ApiKey "<MyApiKey>"
+    
+    glossary_id   : 46fd68a5-63cc-42b2-86f0-5b84bfd4bbd3
+    name          : My Glossary
+    ready         : True
+    source_lang   : en
+    target_lang   : de
+    creation_time : 29.10.2022 21:06:35
+    entry_count   : 1
+    
+    glossary_id   : 66d06460-29b5-46c4-b822-c2c7c1494088
+    name          : MyGlossary
+    ready         : True
+    source_lang   : en
+    target_lang   : de
+    creation_time : 01.11.2022 18:31:05
+    entry_count   : 1
+    
+    This example shows how to retrieve glossary details for two glossaries via pipline input.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossaryDetail.txt
+
+

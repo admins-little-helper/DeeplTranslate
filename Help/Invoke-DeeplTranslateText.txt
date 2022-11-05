@@ -1,0 +1,122 @@
+
+NAME
+    Invoke-DeeplTranslateText
+    
+SYNOPSIS
+    Translates text using the DeepL API.
+    
+    
+SYNTAX
+    Invoke-DeeplTranslateText [-TextToTranslate] <String[]> [[-SplitSentences] <String>] [[-PreserveFormatting] <String>] [[-Formality] <String>] [[-GlossaryId] <Guid[]>] [-ApiKey] <String> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Invoke-DeeplTranslateText' function translates text using the DeepL API. To use the DeepL API, either a free or pro account is required.
+    
+
+PARAMETERS
+    -TextToTranslate <String[]>
+        Text to be translated. Only UTF8-encoded plain text is supported. Supports pipeline input.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    -SplitSentences <String>
+        Sets whether the translation engine should first split the input into sentences. This is enabled by default ('On').
+        
+        Required?                    false
+        Position?                    2
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -PreserveFormatting <String>
+        Sets whether the translation engine should respect the original formatting, even if it would usually correct some aspects. This is disabled by default ('Off').
+        
+        Required?                    false
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Formality <String>
+        Sets whether the translated text should lean towards formal or informal language.
+        
+        Required?                    false
+        Position?                    4
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -GlossaryId <Guid[]>
+        Specify the glossary to use for the translation.
+        Important: This requires the SourceLanguage parameter to be set and the language pair of the glossary has to match the language pair of the request.
+        
+        Required?                    false
+        Position?                    5
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    6
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    String for parameter 'TextToTranslate'
+    
+    
+OUTPUTS
+    PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Invoke-DeeplTranslateText -TextToTranslate "PowerShell is cool!" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+    
+    This example shows how to translate a text into German.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    Invoke-DeeplTranslateText -TextToTranslate "PowerShell is cool!" -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+    
+    SourceText              : PowerShell is cool!
+    TargetText              : PowerShell ist cool!
+    DetectedSourceLanguage  : EN
+    SpecifiedSourceLanguage : EN
+    SpecifiedTargetLanguage : DE
+    OriginalResponse        : @{translations=System.Object[]}
+    
+    This example shows how to translate a text into German by also specifying the source language as beeing English.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Invoke-DeeplTranslateText.txt
+
+

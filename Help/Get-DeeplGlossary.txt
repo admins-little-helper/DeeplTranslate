@@ -1,0 +1,82 @@
+
+NAME
+    Get-DeeplGlossary
+    
+SYNOPSIS
+    Retrieves all glossaries and their meta-information, but not the glossary entries.
+    
+    
+SYNTAX
+    Get-DeeplGlossary [-ApiKey] <String> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplGlossary' function retrieves all glossaries and their meta-information, but not the glossary entries.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplGlossary -ApiKey "<MyApiKey>"
+    
+    glossary_id   : f9a2a12f-9dec-4ca0-b9bd-cb3d9c645aed
+    name          : My Glossary
+    ready         : True
+    source_lang   : en
+    target_lang   : de
+    creation_time : 31.10.2022 21:39:37
+    entry_count   : 1
+    
+    This example shows how to retrieve a list of all glossaries of a DeepL account.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    Get-DeeplGlossary -ApiKey "<MyApiKey>" | ft
+    
+    glossary_id                          name        ready source_lang target_lang creation_time       entry_count
+    -----------                          ----        ----- ----------- ----------- -------------       -----------
+    f9a2a12f-9dec-4ca0-b9bd-cb3d9c645aed My Glossary  True en          de          31.10.2022 21:39:37           1
+    f9077ca0-66ab-4a16-afaf-1ce332feab50 My Glossary  True en          de          31.10.2022 21:43:56           1
+    
+    This example shows how to retrieve a list of glossaries and format the output as table.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossary.txt
+
+

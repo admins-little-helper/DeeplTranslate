@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+    <Type>
+        <Name>DeeplTranslate.Text</Name>
+        <Members>
+            <MemberSet>
+                <Name>PSStandardMembers</Name>
+                <Members>
+                    <PropertySet>
+                        <Name>DefaultDisplayPropertySet</Name>
+                        <ReferencedProperties>
+                            <Name>SourceText</Name>
+                            <Name>TargetText</Name>
+                            <Name>DetectedSourceLanguage</Name>
+                            <Name>SpecifiedSourceLanguage</Name>
+                            <Name>SpecifiedTargetLanguage</Name>
+                            <Name>OriginalResponse</Name>
+                        </ReferencedProperties>
+                    </PropertySet>
+                </Members>
+            </MemberSet>
+        </Members>
+    </Type>
+</Types>

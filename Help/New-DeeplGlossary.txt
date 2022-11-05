@@ -1,0 +1,96 @@
+
+NAME
+    New-DeeplGlossary
+    
+SYNOPSIS
+    Creates a new glossary for a DeepL account.
+    
+    
+SYNTAX
+    New-DeeplGlossary [-ApiKey] <String> [-Name] <String> [[-Entry] <String>] [[-EntryFormat] <String>] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'New-DeeplGlossary' function creates a new glossary for a DeepL account with the source and target language entries.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Name <String>
+        Name to be associated with the glossary.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Entry <String>
+        The entry of the glossary. The entry has to be specified in the format provided by the EntryFormat parameter.
+        
+        Required?                    false
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -EntryFormat <String>
+        Possible values: 'CSV' or 'TSV'. Default is 'TSV'. The format in which the glossary entry is provided.
+        Refer to https://www.deepl.com/docs-api/glossaries/formats/ for more information about the correct input format.
+        
+        Required?                    false
+        Position?                    4
+        Default value                TSV
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    New-DeeplGlossary -Verbose -ApiKey <MyApiKey>-Name "MyGlossary" -Entry "Hello`tGuten Tag" -EntryFormat TSV -LanguagePair en..de
+    
+    glossary_id   : 57dda93f-597f-494f-88e2-c1771de8a530
+    name          : MyGlossary
+    ready         : True
+    source_lang   : en
+    target_lang   : de
+    creation_time : 01.11.2022 18:19:54
+    entry_count   : 1
+    
+    This example shows how to create a new glossary with name "MyGlossary" with language pair English/German.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/New-DeeplGlossary.txt
+
+

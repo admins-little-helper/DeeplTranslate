@@ -1,0 +1,80 @@
+
+NAME
+    Get-DeeplUsage
+    
+SYNOPSIS
+    Retrieves usage information for a DeepL account.
+    
+    
+SYNTAX
+    Get-DeeplUsage [-ApiKey] <String[]> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplUsage' function retrieves usage information within the current billing period together with the corresponding account limits.
+    In addition to the data returned from the DeepL Api the output contains the first 5 charactes for the ApiKey.
+    This is to identify the account in case multiple values are specified for the 'ApiKey' parameter.
+    
+
+PARAMETERS
+    -ApiKey <String[]>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.String for parameter 'ApiKey'
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplUsage -ApiKey "<MyApiKey>"
+    
+    character_count character_limit ApiKeyPart
+    --------------- --------------- ----------
+             491290          500000 abcde
+    
+    This example shows how to retrieve the usage information for a DeepL account.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    "<MyApiKey_A>", "<MyApiKey_B>" | Get-DeeplUsage
+    
+    character_count character_limit ApiKeyPart
+    --------------- --------------- ----------
+             491290          500000 aaaaa
+                  0          500000 bbbbb
+    
+    This example shows how to retrieve usage information for multiple DeepL accounts by piping two ApiKeys to the function.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplUsage.txt
+
+

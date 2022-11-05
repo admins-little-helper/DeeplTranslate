@@ -1,0 +1,96 @@
+
+NAME
+    Get-DeeplGlossaryEntry
+    
+SYNOPSIS
+    Retrieves a list of entries of a glossary.
+    
+    
+SYNTAX
+    Get-DeeplGlossaryEntry [-ApiKey] <String> [-GlossaryId] <Guid[]> [[-Format] <String>] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplGlossaryEntry' function retrieves a list of entries of a glossary in the format specified by the 'Format' parameter.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -GlossaryId <Guid[]>
+        The glossary id for which you want to retrieve a list of entries.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    -Format <String>
+        The requested format of the returned glossary entries. Currently, supports only text/tab-separated-values.
+        
+        Required?                    false
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.Guid for parameter 'GlossaryId'
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplGlossaryEntry -ApiKey "<MyApiKey>" -GlossaryId 46fd68a5-63cc-42b2-86f0-5b84bfd4bbd3
+    
+    GlossaryId                             GlossaryContent
+    ----------                             ---------------
+    {f9a2a12f-9dec-4ca0-b9bd-cb3d9c645aed} Hello    Guten Tag
+    
+    This example shows how to retrieve the entries for a glossary.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    (Get-DeeplGlossary -Verbose -ApiKey "<MyApiKey>").glossary_id | Get-DeeplGlossaryEntry -Verbose -ApiKey "<MyApiKey>"
+    
+    GlossaryId                             GlossaryContent
+    ----------                             ---------------
+    {f9a2a12f-9dec-4ca0-b9bd-cb3d9c645aed} Hello    Guten Tag
+    {e6e08347-eeb1-4b09-87d0-7563dc8b9c3a} Bye      Tschüß…
+    
+    This example shows how to retrieve a list of glossaries and pipe the glossary id to get the glossary entries for each glossary.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossaryEntry.txt
+
+

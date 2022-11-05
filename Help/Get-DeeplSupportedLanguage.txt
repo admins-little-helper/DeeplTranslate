@@ -1,0 +1,228 @@
+
+NAME
+    Get-DeeplSupportedLanguage
+    
+SYNOPSIS
+    Retrieves the supported source and target langueges for the DeepL Api.
+    
+    
+SYNTAX
+    Get-DeeplSupportedLanguage [[-ApiKey] <String>] [-TargetLanguage] [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Get-DeeplSupportedLanguage' function retrieves the supported source and target langueges of the DeepL Api.
+    
+
+PARAMETERS
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    false
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -TargetLanguage [<SwitchParameter>]
+        If specified or set to $true, the functions returns the list of supported target languages.
+        If ommitted or set to $false the functions returns the list of supported source languages.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    Nothing
+    
+    
+OUTPUTS
+    System.Management.Automation.PSCustomObject
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Get-DeeplSupportedLanguage -ApiKey "<MyApiKey>"
+    
+    language name
+    -------- ----
+    BG       Bulgarian
+    CS       Czech
+    DA       Danish
+    DE       German
+    EL       Greek
+    EN       English
+    ES       Spanish
+    ET       Estonian
+    FI       Finnish
+    FR       French
+    HU       Hungarian
+    ID       Indonesian
+    IT       Italian
+    JA       Japanese
+    LT       Lithuanian
+    LV       Latvian
+    NL       Dutch
+    PL       Polish
+    PT       Portuguese
+    RO       Romanian
+    RU       Russian
+    SK       Slovak
+    SL       Slovenian
+    SV       Swedish
+    TR       Turkish
+    UK       Ukrainian
+    ZH       Chinese
+    
+    This example shows how to retrieve a list of supported source languages.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    Get-DeeplSupportedLanguage -ApiKey "<MyApiKey>" -TargetLanguage
+    
+    language name                   supports_formality
+    -------- ----                   ------------------
+    BG       Bulgarian                           False
+    CS       Czech                               False
+    DA       Danish                              False
+    DE       German                               True
+    EL       Greek                               False
+    EN-GB    English (British)                   False
+    EN-US    English (American)                  False
+    ES       Spanish                              True
+    ET       Estonian                            False
+    FI       Finnish                             False
+    FR       French                               True
+    HU       Hungarian                           False
+    ID       Indonesian                          False
+    IT       Italian                              True
+    JA       Japanese                            False
+    LT       Lithuanian                          False
+    LV       Latvian                             False
+    NL       Dutch                                True
+    PL       Polish                               True
+    PT-BR    Portuguese (Brazilian)               True
+    PT-PT    Portuguese (European)                True
+    RO       Romanian                            False
+    RU       Russian                              True
+    SK       Slovak                              False
+    SL       Slovenian                           False
+    SV       Swedish                             False
+    TR       Turkish                             False
+    UK       Ukrainian                           False
+    ZH       Chinese (simplified)                False
+    
+    This example shows how to retrieve a list of supported target languages.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 3 --------------------------
+    
+    Get-DeeplSupportedLanguage -ApiKey "<MyApiKey>" -TargetLanguage -Verbose
+    
+    VERBOSE: Provided ApiKey ends with ':fx'. Using DeepL Api Free service URI.
+    VERBOSE: Parameter 'TargetLanguage' specified. Retrieving list of supported target languages.
+    VERBOSE: Sending request.
+    VERBOSE: GET with 0-byte payload
+    VERBOSE: received 1871-byte response of content type application/json
+    VERBOSE: Content encoding: utf-8
+    
+    language name                   supports_formality
+    -------- ----                   ------------------
+    BG       Bulgarian                           False
+    CS       Czech                               False
+    DA       Danish                              False
+    DE       German                               True
+    EL       Greek                               False
+    EN-GB    English (British)                   False
+    EN-US    English (American)                  False
+    ES       Spanish                              True
+    ET       Estonian                            False
+    FI       Finnish                             False
+    FR       French                               True
+    HU       Hungarian                           False
+    ID       Indonesian                          False
+    IT       Italian                              True
+    JA       Japanese                            False
+    LT       Lithuanian                          False
+    LV       Latvian                             False
+    NL       Dutch                                True
+    PL       Polish                               True
+    PT-BR    Portuguese (Brazilian)               True
+    PT-PT    Portuguese (European)                True
+    RO       Romanian                            False
+    RU       Russian                              True
+    SK       Slovak                              False
+    SL       Slovenian                           False
+    SV       Swedish                             False
+    TR       Turkish                             False
+    UK       Ukrainian                           False
+    ZH       Chinese (simplified)                False
+    
+    This example shows how to retrieve a list of supported target languages and showing verbose output.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 4 --------------------------
+    
+    "<MyApiKey>" | Get-DeeplSupportedLanguage
+    
+    language name
+    -------- ----
+    BG       Bulgarian
+    CS       Czech
+    DA       Danish
+    DE       German
+    EL       Greek
+    EN       English
+    ES       Spanish
+    ET       Estonian
+    FI       Finnish
+    FR       French
+    HU       Hungarian
+    ID       Indonesian
+    IT       Italian
+    JA       Japanese
+    LT       Lithuanian
+    LV       Latvian
+    NL       Dutch
+    PL       Polish
+    PT       Portuguese
+    RO       Romanian
+    RU       Russian
+    SK       Slovak
+    SL       Slovenian
+    SV       Swedish
+    TR       Turkish
+    UK       Ukrainian
+    ZH       Chinese
+    
+    This example shows how to retrieve a list of supported source languages by piping the ApiKey.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplSupportedLanguage.txt
+
+

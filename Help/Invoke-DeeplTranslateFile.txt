@@ -1,0 +1,145 @@
+
+NAME
+    Invoke-DeeplTranslateFile
+    
+SYNOPSIS
+    Translates a file using the DeepL API.
+    
+    
+SYNTAX
+    Invoke-DeeplTranslateFile [-InputFile] <String[]> [-OutputPath] <FileInfo> [-Force] [-OpenTranslatedFile] [[-Formality] <String>] [[-GlossaryId] <Guid[]>] [-ApiKey] <String> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    The 'Invoke-DeeplTranslateFile' function allows to translate a file using the DeepL API.
+    Supported file types are .docx, .pptx, .pdf, .htm, .html, .txt.
+    
+
+PARAMETERS
+    -InputFile <String[]>
+        The file path to the document to translate. Only these types are supported: .docx, .pptx, .pdf, .htm, .html, .txt.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    -OutputPath <FileInfo>
+        The folder path in which the output file should be saved. The output filename will be set to '<InputFilename>_<TargetLanguage>.<FileExtension>'.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Force [<SwitchParameter>]
+        If specified, existing output files will be overwritten.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -OpenTranslatedFile [<SwitchParameter>]
+        If specified, the output file will be opened after download.
+        In case there are more than 5 input files from pipeline ipnut, only the first 5 files will be opened.
+        In case there are more than 5 input files specified via parameter, no file will be opened automatically.
+        
+        Required?                    false
+        Position?                    named
+        Default value                False
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -Formality <String>
+        Sets whether the translated text should lean towards formal or informal language.
+        
+        Required?                    false
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    -GlossaryId <Guid[]>
+        Specify the glossary to use for the translation.
+        Important: This requires the SourceLanguage parameter to be set and the language pair of the glossary has to match the language pair of the request.
+        
+        Required?                    false
+        Position?                    4
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    -ApiKey <String>
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        
+        Required?                    true
+        Position?                    5
+        Default value                
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.IO.FileInfo for parameter 'InputFile'
+    
+    
+OUTPUTS
+    System.IO.FileInfo for each output file generated.
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+    
+    This example shows how to translate a DOCX document.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 2 --------------------------
+    
+    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -OpenTranslatedFile
+    
+    This example shows how to translate a DOCX document and directly opens the output file once it has been successfully downloaded.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 3 --------------------------
+    
+    Invoke-DeeplTranslateFile InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+    
+    This example shows how to translate multiple files.
+    
+    
+    
+    
+    -------------------------- EXAMPLE 4 --------------------------
+    
+    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -Force
+    
+    This example shows how to translate multiple files, overwriting any existing files in the output path.
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Invoke-DeeplTranslateFile.txt
+
+
