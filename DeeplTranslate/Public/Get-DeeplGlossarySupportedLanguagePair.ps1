@@ -98,7 +98,7 @@ function Get-DeeplGlossarySupportedLanguagePair {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossarySupportedLanguagePair.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplGlossarySupportedLanguagePair.txt
 
     #>
 

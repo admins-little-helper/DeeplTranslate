@@ -97,6 +97,6 @@ NOTES
     
     
 RELATED LINKS
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossaryDetail.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplGlossaryDetail.txt
 
 

@@ -228,7 +228,7 @@ function Get-DeeplSupportedLanguage {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplSupportedLanguage.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplSupportedLanguage.txt
 
     #>
 

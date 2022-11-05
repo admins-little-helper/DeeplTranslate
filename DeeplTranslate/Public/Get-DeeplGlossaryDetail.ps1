@@ -110,7 +110,7 @@ function Get-DeeplGlossaryDetail {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossaryDetail.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplGlossaryDetail.txt
 
     #>
 

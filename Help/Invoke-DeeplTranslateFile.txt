@@ -140,6 +140,6 @@ NOTES
     
     
 RELATED LINKS
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Invoke-DeeplTranslateFile.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Invoke-DeeplTranslateFile.txt
 
 

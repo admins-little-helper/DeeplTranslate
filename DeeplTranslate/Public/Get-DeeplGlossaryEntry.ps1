@@ -98,7 +98,7 @@ function Get-DeeplGlossaryEntry {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Get-DeeplGlossaryEntry.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplGlossaryEntry.txt
 
     #>
 

@@ -112,7 +112,7 @@ function Invoke-DeeplTranslateText {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/Invoke-DeeplTranslateText.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Invoke-DeeplTranslateText.txt
 
     #>
 

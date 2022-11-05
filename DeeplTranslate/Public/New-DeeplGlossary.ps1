@@ -99,7 +99,7 @@ function New-DeeplGlossary {
     Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/help/New-DeeplGlossary.txt
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/New-DeeplGlossary.txt
 
     #>
 
