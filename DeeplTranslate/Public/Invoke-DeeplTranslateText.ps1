@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.0.0
+.VERSION 1.1.0
 
 .GUID 30f094cf-7b81-41b8-9820-cc161ea5a8ee
 
@@ -28,6 +28,9 @@
     1.0.0
     Initial release
 
+    1.1.0
+    Updated way to get DeepL Api Uri and Http Status codes.
+    
 #>
 
 
@@ -250,17 +253,7 @@ function Invoke-DeeplTranslateText {
         # Set the output encoding to UTF8 so that this function shows the same results for special characters in PowerShell 5.1 and in PowerShell 6.x or later.
         [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
-        # Set the base URI to either the DeepL API Pro or DeepL API Free service depending on the ApiKey value specified.
-        # DeepL API Free authentication keys can be identified easily by the suffix ":fx" (e.g., 279a2e9d-83b3-c416-7e2d-f721593e42a0:fx).
-        # For more information refer to https://www.deepl.com/docs-api/api-access/authentication/.
-        $BaseUri = if ($ApiKey -match "(:fx)$") {
-            Write-Verbose -Message "The ApiKey specified ends with ':fx'. Using DeepL Api Free service URI."
-            'https://api-free.deepl.com/v2'
-        }
-        else {
-            Write-Verbose -Message "The ApiKey specified does not end with ':fx'. Using DeepL Api Pro service URI."
-            'https://api.deepl.com/v2'
-        }      
+        $BaseUri = Get-DeeplApiUri -ApiKey $ApiKey
     }
 
     process {
@@ -311,46 +304,12 @@ function Invoke-DeeplTranslateText {
                 $Result
             }
             catch [Microsoft.PowerShell.Commands.HttpResponseException] {
-                switch ( $_.Exception.Response.StatusCode.value__ ) {
-                    400 {
-                        Write-Error -Message "Bad Request."
-                    }
-                    401 {
-                        Write-Error -Message "Unauthorized."
-                    }
-                    403 {
-                        Write-Error -Message "Authorization failed. Please supply a valid ApiKey."
-                    }
-                    404 {
-                        Write-Error -Message "Not found."
-                    }
-                    413 {
-                        Write-Error -Message "Payload too large."
-                    }
-                    414 {
-                        Write-Error -Message "URI too long."
-                    }
-                    429 {
-                        Write-Error -Message "Too many requests. Please wait and resend your request."
-                    }
-                    429 {
-                        Write-Error -Message "Quota exceeded."
-                    }
-                    500 {
-                        Write-Error -Message "Internal Server error."
-                    }
-                    503 {
-                        Write-Error -Message "Resource currently unavailable. Try again later."
-                    }
-                    504 {
-                        Write-Error -Message "Service unavailable."
-                    }
-                    529 {
-                        Write-Error -Message "Too many requests. Please wait and resend your request."
-                    }
-                    default {
-                        $_
-                    }
+                $ErrorMessage = Get-DeeplStatusCode -StatusCode $_.Exception.Response.StatusCode
+                if ($null -ne $ErrorMessage) {
+                    Write-Error -Message $ErrorMessage
+                }
+                else {
+                    Write-Error -Message "Http Status Code: $_"
                 }
             }
             catch {

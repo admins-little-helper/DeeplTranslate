@@ -1,0 +1,60 @@
+
+NAME
+    Test-IsGuid
+    
+SYNOPSIS
+    Validates a given input string and checks if it is a valid GUID.
+    
+    
+SYNTAX
+    Test-IsGuid [-InputObject] <String[]> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    Validates a given input string and checks if it is a valid GUID.
+    
+
+PARAMETERS
+    -InputObject <String[]>
+        String value to test.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.String
+    
+    
+OUTPUTS
+    System.Boolean
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Test-Guid -InputObject "3363e9e1-00d8-45a1-9c0c-b93ee03f8c13"
+    
+    
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Test-IsGuid.txt
+
+

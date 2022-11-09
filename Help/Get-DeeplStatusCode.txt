@@ -1,0 +1,60 @@
+
+NAME
+    Get-DeeplStatusCode
+    
+SYNOPSIS
+    Retrieves a status code message for a given http status code.
+    
+    
+SYNTAX
+    Get-DeeplStatusCode [-StatusCode] <Int32[]> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    Retrieves a status code message for a given http status code.
+    
+
+PARAMETERS
+    -StatusCode <Int32[]>
+        HTTP status code number as integer.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.Int32
+    
+    
+OUTPUTS
+    System.String
+    
+    
+NOTES
+    
+    
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
+    
+    -------------------------- EXAMPLE 1 --------------------------
+    
+    PS > Get-DeeplStatusCode -StatusCode 400
+    
+    
+    
+    
+    
+    
+    
+RELATED LINKS
+    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplStatusCode.txt
+
+

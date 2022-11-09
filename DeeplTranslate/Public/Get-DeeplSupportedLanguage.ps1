@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.0.0
+.VERSION 1.1.0
 
 .GUID c58c97a3-6664-4b38-af19-f12aca4715cc
 
@@ -28,6 +28,15 @@
     1.0.0
     Initial release
 
+    1.0.1
+    Fixed issue with empty Uri in verbose output.
+  
+    1.0.2
+    Fixed issue with tab completion in case an ApiKey with an invalid format is specified.
+
+    1.1.0
+    Updated way to get DeepL Api Uri and Http Status codes.
+    
 #>
 
 
@@ -507,9 +516,10 @@ function Get-DeeplSupportedLanguage {
         }
     )
 
-    if ([string]::IsNullOrEmpty($ApiKey)) {
+    # Test if an ApiKey was specified and if it's a valid GUID (without a trailing ':fx' 'DeepL API free' marker)
+    if ([string]::IsNullOrEmpty($ApiKey) -or (-not (Test-IsGuid($ApiKey -replace "(:fx)$", "")))) {
         # Return the list of statically defined language pairs, in case no ApiKey was specified.
-        Write-Verbose -Message "Returning statically defined list of supported languages because no ApiKey was specified to query the DeepL Api service."
+        Write-Verbose -Message "Returning statically defined list of supported languages because no or an invalid ApiKey was specified to query the DeepL Api service."
 
         if ($TargetLanguage.IsPresent) {
             $SupportedLanguages = $SupportedTargetLanguage
@@ -518,20 +528,10 @@ function Get-DeeplSupportedLanguage {
             $SupportedLanguages = $SupportedSourceLanguage
         }
 
-        return $SupportedLanguages
+        $SupportedLanguages
     }
     else {
-        # Set the base URI to either the DeepL API Pro or DeepL API Free service depending on the ApiKey value specified.
-        # DeepL API Free authentication keys can be identified easily by the suffix ":fx" (e.g., 279a2e9d-83b3-c416-7e2d-f721593e42a0:fx).
-        # For more information refer to https://www.deepl.com/docs-api/api-access/authentication/.
-        $BaseUri = if ($ApiKey -match "(:fx)$") {
-            Write-Verbose -Message "The ApiKey specified ends with ':fx'. Using DeepL Api Free service URI."
-            'https://api-free.deepl.com/v2'
-        }
-        else {
-            Write-Verbose -Message "The ApiKey specified does not end with ':fx'. Using DeepL Api Pro service URI."
-            'https://api.deepl.com/v2'
-        }
+        $BaseUri = Get-DeeplApiUri -ApiKey $ApiKey
 
         if ($TargetLanguage.IsPresent) {
             # Set the type parameter to value 'target' to retrieve a list of supported target languages.
@@ -557,51 +557,17 @@ function Get-DeeplSupportedLanguage {
             }
 
             # Try to retrieve the list of supported source or target languages.
-            Write-Verbose -Message "Calling Uri: $Uri"
+            Write-Verbose -Message "Calling Uri: $($Params.Uri)"
             $SupportedLanguages = Invoke-RestMethod @Params
             $SupportedLanguages
         }
         catch [Microsoft.PowerShell.Commands.HttpResponseException] {
-            switch ( $_.Exception.Response.StatusCode ) {
-                400 {
-                    Write-Error -Message "Bad Request."
-                }
-                401 {
-                    Write-Error -Message "Unauthorized."
-                }
-                403 {
-                    Write-Error -Message "Authorization failed. Please supply a valid ApiKey."
-                }
-                404 {
-                    Write-Error -Message "Not found."
-                }
-                413 {
-                    Write-Error -Message "Payload too large."
-                }
-                414 {
-                    Write-Error -Message "URI too long."
-                }
-                429 {
-                    Write-Error -Message "Too many requests. Please wait and resend your request."
-                }
-                429 {
-                    Write-Error -Message "Quota exceeded."
-                }
-                500 {
-                    Write-Error -Message "Internal Server error."
-                }
-                503 {
-                    Write-Error -Message "Resource currently unavailable. Try again later."
-                }
-                504 {
-                    Write-Error -Message "Service unavailable."
-                }
-                529 {
-                    Write-Error -Message "Too many requests. Please wait and resend your request."
-                }
-                default {
-                    $_
-                }
+            $ErrorMessage = Get-DeeplStatusCode -StatusCode $_.Exception.Response.StatusCode
+            if ($null -ne $ErrorMessage) {
+                Write-Error -Message $ErrorMessage
+            }
+            else {
+                Write-Error -Message "Http Status Code: $_"
             }
         }
         catch {
