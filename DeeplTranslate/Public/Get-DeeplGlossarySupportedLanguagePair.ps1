@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.2.0
 
 .GUID 7dc3619d-1192-40d8-92d1-dc85de4f29a1
 
@@ -34,6 +34,8 @@
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
     
+    1.2.0
+    Updated list of supported source and target languages.
 #>
 
 
@@ -75,7 +77,12 @@ function Get-DeeplGlossarySupportedLanguagePair {
     source_lang target_lang
     ----------- -----------
     de          en
+    de          es
     de          fr
+    de          ja
+    de          it
+    de          pl
+    de          nl
     en          de
     en          es
     en          fr
@@ -83,13 +90,48 @@ function Get-DeeplGlossarySupportedLanguagePair {
     en          it
     en          pl
     en          nl
+    es          de
     es          en
+    es          fr
+    es          ja
+    es          it
+    es          pl
+    es          nl
     fr          de
     fr          en
+    fr          es
+    fr          ja
+    fr          it
+    fr          pl
+    fr          nl
+    ja          de
     ja          en
+    ja          es
+    ja          fr
+    ja          it
+    ja          pl
+    ja          nl
+    it          de
     it          en
+    it          es
+    it          fr
+    it          ja
+    it          pl
+    it          nl
+    pl          de
     pl          en
+    pl          es
+    pl          fr
+    pl          ja
+    pl          it
+    pl          nl
+    nl          de
     nl          en
+    nl          es
+    nl          fr
+    nl          ja
+    nl          it
+    nl          pl
 
     This example shows how to retrieve a list supported languages for glossaries.
 
@@ -117,7 +159,7 @@ function Get-DeeplGlossarySupportedLanguagePair {
 
     # Set a default list of supported language pairs to have something that this function will return in case
     # the Api call to retrieve the list of supported glossary language pairs fails with an error.
-    # This is list is valid as of 2022-10-30.
+    # This list is valid as of 2023-02-23.
     $GlossaryLanguagePairs = [PSCustomObject]@{
         supported_languages = @(
             [PSCustomObject]@{
@@ -126,8 +168,28 @@ function Get-DeeplGlossarySupportedLanguagePair {
             },
             [PSCustomObject]@{
                 "source_lang" = "de"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "de"
                 "target_lang" = "fr"
-            }
+            },
+            [PSCustomObject]@{
+                "source_lang" = "de"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "de"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "de"
+                "target_lang" = "pl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "de"
+                "target_lang" = "nl"
+            },
             [PSCustomObject]@{
                 "source_lang" = "en"
                 "target_lang" = "de"
@@ -158,7 +220,31 @@ function Get-DeeplGlossarySupportedLanguagePair {
             },
             [PSCustomObject]@{
                 "source_lang" = "es"
+                "target_lang" = "de"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
                 "target_lang" = "en"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
+                "target_lang" = "fr"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
+                "target_lang" = "pl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "es"
+                "target_lang" = "nl"
             },
             [PSCustomObject]@{
                 "source_lang" = "fr"
@@ -169,20 +255,136 @@ function Get-DeeplGlossarySupportedLanguagePair {
                 "target_lang" = "en"
             },
             [PSCustomObject]@{
+                "source_lang" = "fr"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "fr"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "fr"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "fr"
+                "target_lang" = "pl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "fr"
+                "target_lang" = "nl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "de"
+            },
+            [PSCustomObject]@{
                 "source_lang" = "ja"
                 "target_lang" = "en"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "fr"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "pl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "ja"
+                "target_lang" = "nl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "de"
             },
             [PSCustomObject]@{
                 "source_lang" = "it"
                 "target_lang" = "en"
             },
             [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "fr"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "pl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "it"
+                "target_lang" = "nl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "de"
+            },
+            [PSCustomObject]@{
                 "source_lang" = "pl"
                 "target_lang" = "en"
             },
             [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "fr"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "pl"
+                "target_lang" = "nl"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "de"
+            },
+            [PSCustomObject]@{
                 "source_lang" = "nl"
                 "target_lang" = "en"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "es"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "fr"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "ja"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "it"
+            },
+            [PSCustomObject]@{
+                "source_lang" = "nl"
+                "target_lang" = "pl"
             }
         )
     }

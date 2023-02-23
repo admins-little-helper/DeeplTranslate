@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.2.0
 
 .GUID c58c97a3-6664-4b38-af19-f12aca4715cc
 
@@ -37,6 +37,8 @@
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
     
+    1.2.0
+    Updated list of supported source and target languages.
 #>
 
 
@@ -94,8 +96,10 @@ function Get-DeeplSupportedLanguage {
     ID       Indonesian
     IT       Italian
     JA       Japanese
+    KO       Korean
     LT       Lithuanian
     LV       Latvian
+    NB       Norwegian
     NL       Dutch
     PL       Polish
     PT       Portuguese
@@ -130,8 +134,10 @@ function Get-DeeplSupportedLanguage {
     ID       Indonesian                          False
     IT       Italian                              True
     JA       Japanese                            False
+    KO       Korean                              False
     LT       Lithuanian                          False
     LV       Latvian                             False
+    NB       Norwegian                           False
     NL       Dutch                                True
     PL       Polish                               True
     PT-BR    Portuguese (Brazilian)               True
@@ -174,8 +180,10 @@ function Get-DeeplSupportedLanguage {
     ID       Indonesian                          False
     IT       Italian                              True
     JA       Japanese                            False
+    KO       Korean                              False
     LT       Lithuanian                          False
     LV       Latvian                             False
+    NB       Norwegian                           False
     NL       Dutch                                True
     PL       Polish                               True
     PT-BR    Portuguese (Brazilian)               True
@@ -210,8 +218,10 @@ function Get-DeeplSupportedLanguage {
     ID       Indonesian
     IT       Italian
     JA       Japanese
+    KO       Korean
     LT       Lithuanian
     LV       Latvian
+    NB       Norwegian
     NL       Dutch
     PL       Polish
     PT       Portuguese
@@ -253,7 +263,7 @@ function Get-DeeplSupportedLanguage {
     
     # Set a default list of supported source languages to have something that this function will return in case
     # the Api call to retrieve the list of supported languages fails with an error.
-    # This is list is valid as of 2022-10-30.
+    # This list is valid as of 2023-02-23.
     $SupportedSourceLanguage = @(
         [PSCustomObject]@{
             "language" = "BG"
@@ -312,12 +322,20 @@ function Get-DeeplSupportedLanguage {
             "name"     = "Japanese"
         }
         [PSCustomObject]@{
+            "language" = "KO"
+            "name"     = "Korean"
+        }
+        [PSCustomObject]@{
             "language" = "LT"
             "name"     = "Lithuanian"
         }
         [PSCustomObject]@{
             "language" = "LV"
             "name"     = "Latvian"
+        }
+        [PSCustomObject]@{
+            "language" = "NB"
+            "name"     = "Norwegian"
         }
         [PSCustomObject]@{
             "language" = "NL"
@@ -367,7 +385,7 @@ function Get-DeeplSupportedLanguage {
     
     # Set a default list of supported target languages to have something that this function will return in case
     # the Api call to retrieve the list of supported languages fails with an error.
-    # This is list is valid as of 2022-10-30.
+    # This list is valid as of 2023-02-23.
     $SupportedTargetLanguage = @(
         [PSCustomObject]@{
             "language"           = "BG"
@@ -445,6 +463,11 @@ function Get-DeeplSupportedLanguage {
             "supports_formality" = $false
         }
         [PSCustomObject]@{
+            "language"           = "KO"
+            "name"               = "Korean"
+            "supports_formality" = $false
+        }
+        [PSCustomObject]@{
             "language"           = "LT"
             "name"               = "Lithuanian"
             "supports_formality" = $false
@@ -452,6 +475,11 @@ function Get-DeeplSupportedLanguage {
         [PSCustomObject]@{
             "language"           = "LV"
             "name"               = "Latvian"
+            "supports_formality" = $false
+        }
+        [PSCustomObject]@{
+            "language"           = "NB"
+            "name"               = "Norwegian"
             "supports_formality" = $false
         }
         [PSCustomObject]@{
