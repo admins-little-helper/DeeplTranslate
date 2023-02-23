@@ -74,8 +74,10 @@ NOTES
     ID       Indonesian
     IT       Italian
     JA       Japanese
+    KO       Korean
     LT       Lithuanian
     LV       Latvian
+    NB       Norwegian
     NL       Dutch
     PL       Polish
     PT       Portuguese
@@ -114,8 +116,10 @@ NOTES
     ID       Indonesian                          False
     IT       Italian                              True
     JA       Japanese                            False
+    KO       Korean                              False
     LT       Lithuanian                          False
     LV       Latvian                             False
+    NB       Norwegian                           False
     NL       Dutch                                True
     PL       Polish                               True
     PT-BR    Portuguese (Brazilian)               True
@@ -162,8 +166,10 @@ NOTES
     ID       Indonesian                          False
     IT       Italian                              True
     JA       Japanese                            False
+    KO       Korean                              False
     LT       Lithuanian                          False
     LV       Latvian                             False
+    NB       Norwegian                           False
     NL       Dutch                                True
     PL       Polish                               True
     PT-BR    Portuguese (Brazilian)               True
@@ -202,8 +208,10 @@ NOTES
     ID       Indonesian
     IT       Italian
     JA       Japanese
+    KO       Korean
     LT       Lithuanian
     LV       Latvian
+    NB       Norwegian
     NL       Dutch
     PL       Polish
     PT       Portuguese

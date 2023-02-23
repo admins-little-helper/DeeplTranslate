@@ -51,7 +51,12 @@ NOTES
     source_lang target_lang
     ----------- -----------
     de          en
+    de          es
     de          fr
+    de          ja
+    de          it
+    de          pl
+    de          nl
     en          de
     en          es
     en          fr
@@ -59,13 +64,48 @@ NOTES
     en          it
     en          pl
     en          nl
+    es          de
     es          en
+    es          fr
+    es          ja
+    es          it
+    es          pl
+    es          nl
     fr          de
     fr          en
+    fr          es
+    fr          ja
+    fr          it
+    fr          pl
+    fr          nl
+    ja          de
     ja          en
+    ja          es
+    ja          fr
+    ja          it
+    ja          pl
+    ja          nl
+    it          de
     it          en
+    it          es
+    it          fr
+    it          ja
+    it          pl
+    it          nl
+    pl          de
     pl          en
+    pl          es
+    pl          fr
+    pl          ja
+    pl          it
+    pl          nl
+    nl          de
     nl          en
+    nl          es
+    nl          fr
+    nl          ja
+    nl          it
+    nl          pl
     
     This example shows how to retrieve a list supported languages for glossaries.
     
