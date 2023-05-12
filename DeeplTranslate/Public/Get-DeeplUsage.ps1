@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.2.0
 
 .GUID be34df32-8b54-4d68-b0cc-0e328e646d33
 
@@ -33,6 +33,9 @@
     
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
+    
+    1.2.0
+    Added 'UsagePercent' to output.
     
 #>
 
@@ -130,6 +133,7 @@ function Get-DeeplUsage {
                 # Try to retrieve the DeepL Api usage information.
                 Write-Verbose -Message "Calling Uri: $($Params.Uri)"
                 $Usage = Invoke-RestMethod @Params
+                $Usage | Add-Member -Name 'UsagePercent' -MemberType NoteProperty -Value $Usage.character_count / $Usage.character_limit * 100
                 $Usage | Add-Member -Name 'ApiKeyPart' -MemberType NoteProperty -Value $ApiKeyElement.Substring(0, 5)
                 $Usage
             }
