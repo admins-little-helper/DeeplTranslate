@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 1.3.1 - 2023-05-12
+
+* Fixed issue in showing 'UsagePercent'.
+
 ## Version 1.3.0 - 2023-05-12
 
 * Get-DeeplUsage: Added 'UsagePercent' to output.
