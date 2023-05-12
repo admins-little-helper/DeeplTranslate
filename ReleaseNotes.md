@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 1.3.0 - 2023-05-12
+
+* Get-DeeplUsage: Added 'UsagePercent' to output.
+
 ## Version 1.2.0 - 2023-02-23
 
 * Updated list of supported source and target languages.
