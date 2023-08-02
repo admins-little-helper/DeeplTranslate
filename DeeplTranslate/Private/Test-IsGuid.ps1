@@ -34,10 +34,10 @@
 <#
 
 .DESCRIPTION
-Contains a function to test if a given string is a valid GUID.
+    Contains a function to test if a given string is a valid GUID.
 
 .LINK
-https://github.com/admins-little-helper/DeeplTranslate
+    https://github.com/admins-little-helper/DeeplTranslate
 
 #>
 
@@ -45,30 +45,30 @@ https://github.com/admins-little-helper/DeeplTranslate
 function Test-IsGuid {
     <#
     .SYNOPSIS
-    Validates a given input string and checks if it is a valid GUID.
-    
+        Validates a given input string and checks if it is a valid GUID.
+
     .DESCRIPTION
-    Validates a given input string and checks if it is a valid GUID.
+        Validates a given input string and checks if it is a valid GUID.
 
     .PARAMETER InputObject
-    String value to test.
-    
+        String value to test.
+
     .EXAMPLE
-    Test-Guid -InputObject "3363e9e1-00d8-45a1-9c0c-b93ee03f8c13"
-    
+        Test-Guid -InputObject "3363e9e1-00d8-45a1-9c0c-b93ee03f8c13"
+
     .INPUTS
-    System.String
+        System.String
 
     .OUTPUTS
-    System.Boolean
+        System.Boolean
 
     .NOTES
-    Author:     Dieter Koch
-    Email:      diko@admins-little-helper.de
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Test-IsGuid.txt
-    
+        https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Test-IsGuid.txt
+
     #>
 
     [Cmdletbinding()]
@@ -92,14 +92,14 @@ function Test-IsGuid {
 ################################################################################
 ################################################################################
 #
-#        ______           _          __    _____           _       _   
-#       |  ____|         | |        / _|  / ____|         (_)     | |  
-#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_ 
+#        ______           _          __    _____           _       _
+#       |  ____|         | |        / _|  / ____|         (_)     | |
+#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_
 #       |  __| | '_ \ / _` |  / _ \|  _|  \___ \ / __| '__| | '_ \| __|
-#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_ 
+#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_
 #       |______|_| |_|\__,_|  \___/|_|   |_____/ \___|_|  |_| .__/ \__|
-#                                                           | |        
-#                                                           |_|        
+#                                                           | |
+#                                                           |_|
 ################################################################################
 ################################################################################
 # created with help of http://patorjk.com/software/taag/

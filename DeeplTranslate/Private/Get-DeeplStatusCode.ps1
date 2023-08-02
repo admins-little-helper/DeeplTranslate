@@ -34,10 +34,10 @@
 <#
 
 .DESCRIPTION
-Contains a function to retrieve a status code message for a given http status code.
+    Contains a function to retrieve a status code message for a given http status code.
 
 .LINK
-https://github.com/admins-little-helper/DeeplTranslate
+    https://github.com/admins-little-helper/DeeplTranslate
 
 #>
 
@@ -45,30 +45,30 @@ https://github.com/admins-little-helper/DeeplTranslate
 function Get-DeeplStatusCode {
     <#
     .SYNOPSIS
-    Retrieves a status code message for a given http status code.
-    
+        Retrieves a status code message for a given http status code.
+
     .DESCRIPTION
-    Retrieves a status code message for a given http status code.
+        Retrieves a status code message for a given http status code.
 
     .PARAMETER StatusCode
-    HTTP status code number as integer.
-    
+        HTTP status code number as integer.
+
     .EXAMPLE
-    Get-DeeplStatusCode -StatusCode 400
+        Get-DeeplStatusCode -StatusCode 400
 
     .INPUTS
-    System.Int32
+        System.Int32
 
     .OUTPUTS
-    System.String
+        System.String
 
     .NOTES
-    Author:     Dieter Koch
-    Email:      diko@admins-little-helper.de
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplStatusCode.txt
-    
+        https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Get-DeeplStatusCode.txt
+
     #>
 
     [Cmdletbinding()]
@@ -106,14 +106,14 @@ function Get-DeeplStatusCode {
 ################################################################################
 ################################################################################
 #
-#        ______           _          __    _____           _       _   
-#       |  ____|         | |        / _|  / ____|         (_)     | |  
-#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_ 
+#        ______           _          __    _____           _       _
+#       |  ____|         | |        / _|  / ____|         (_)     | |
+#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_
 #       |  __| | '_ \ / _` |  / _ \|  _|  \___ \ / __| '__| | '_ \| __|
-#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_ 
+#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_
 #       |______|_| |_|\__,_|  \___/|_|   |_____/ \___|_|  |_| .__/ \__|
-#                                                           | |        
-#                                                           |_|        
+#                                                           | |
+#                                                           |_|
 ################################################################################
 ################################################################################
 # created with help of http://patorjk.com/software/taag/

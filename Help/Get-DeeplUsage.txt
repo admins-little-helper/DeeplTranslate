@@ -65,8 +65,8 @@ NOTES
     
     character_count character_limit ApiKeyPart
     --------------- --------------- ----------
-             491290          500000 aaaaa
-                  0          500000 bbbbb
+            491290          500000 aaaaa
+                 0          500000 bbbbb
     
     This example shows how to retrieve usage information for multiple DeepL accounts by piping two ApiKeys to the function.
     

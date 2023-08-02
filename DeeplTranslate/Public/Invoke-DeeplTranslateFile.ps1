@@ -30,27 +30,26 @@
 
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
-    
+
 #>
 
 
 <#
 
 .DESCRIPTION
-Contains a function to translate a file using the DeepL API.
-More information about the DeepL API can be found here: https://www.deepl.com/de/docs-api/introduction/.
+    Contains a function to translate a file using the DeepL API.
+    More information about the DeepL API can be found here: https://www.deepl.com/de/docs-api/introduction/.
 
-To use this PowerShell function, a DeepL ApiKey is needed which requires an account. To register for an account, go to www.deepl.com.
-
-
-.LINK
-https://github.com/admins-little-helper/DeeplTranslate
+    To use this PowerShell function, a DeepL ApiKey is needed which requires an account. To register for an account, go to www.deepl.com.
 
 .LINK
-https://www.deepl.com
+    https://github.com/admins-little-helper/DeeplTranslate
 
 .LINK
-https://www.deepl.com/de/docs-api/introduction/
+    https://www.deepl.com
+
+.LINK
+    https://www.deepl.com/de/docs-api/introduction/
 
 #>
 
@@ -58,74 +57,74 @@ https://www.deepl.com/de/docs-api/introduction/
 function Invoke-DeeplTranslateFile {
     <#
     .SYNOPSIS
-    Translates a file using the DeepL API.
+        Translates a file using the DeepL API.
 
     .DESCRIPTION
-    The 'Invoke-DeeplTranslateFile' function allows to translate a file using the DeepL API.
-    Supported file types are .docx, .pptx, .pdf, .htm, .html, .txt.
+        The 'Invoke-DeeplTranslateFile' function allows to translate a file using the DeepL API.
+        Supported file types are .docx, .pptx, .pdf, .htm, .html, .txt.
 
     .PARAMETER InputFile
-    The file path to the document to translate. Only these types are supported: .docx, .pptx, .pdf, .htm, .html, .txt.
+        The file path to the document to translate. Only these types are supported: .docx, .pptx, .pdf, .htm, .html, .txt.
 
     .PARAMETER OutputPath
-    The folder path in which the output file should be saved. The output filename will be set to '<InputFilename>_<TargetLanguage>.<FileExtension>'.
+        The folder path in which the output file should be saved. The output filename will be set to '<InputFilename>_<TargetLanguage>.<FileExtension>'.
 
     .PARAMETER TargetLanguage
-    The language the text should be translated to.
+        The language the text should be translated to.
 
     .PARAMETER OpenTranslatedFile
-    If specified, the output file will be opened after download.
-    In case there are more than 5 input files from pipeline ipnut, only the first 5 files will be opened.
-    In case there are more than 5 input files specified via parameter, no file will be opened automatically.
+        If specified, the output file will be opened after download.
+        In case there are more than 5 input files from pipeline ipnut, only the first 5 files will be opened.
+        In case there are more than 5 input files specified via parameter, no file will be opened automatically.
 
     .PARAMETER Force
-    If specified, existing output files will be overwritten.
+        If specified, existing output files will be overwritten.
 
     .PARAMETER SourceLanguage
-    Language of the text to be translated. If no source language is specified, the DeepL Api tries to automatically detect the language.
+        Language of the text to be translated. If no source language is specified, the DeepL Api tries to automatically detect the language.
 
     .PARAMETER Formality
-    Sets whether the translated text should lean towards formal or informal language.
+        Sets whether the translated text should lean towards formal or informal language.
 
     .PARAMETER GlossaryId
-    Specify the glossary to use for the translation.
-    Important: This requires the SourceLanguage parameter to be set and the language pair of the glossary has to match the language pair of the request.
+        Specify the glossary to use for the translation.
+        Important: This requires the SourceLanguage parameter to be set and the language pair of the glossary has to match the language pair of the request.
 
     .PARAMETER ApiKey
-    API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
+        API authentication key. You need an authentication key to access the DeepL API. Refer to the DeepL API documentation for more information.
 
     .EXAMPLE
-    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+        Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
 
-    This example shows how to translate a DOCX document.
-
-    .EXAMPLE
-    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -OpenTranslatedFile
-
-    This example shows how to translate a DOCX document and directly opens the output file once it has been successfully downloaded.
+        This example shows how to translate a DOCX document.
 
     .EXAMPLE
-    Invoke-DeeplTranslateFile InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
+        Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -OpenTranslatedFile
 
-    This example shows how to translate multiple files.
+        This example shows how to translate a DOCX document and directly opens the output file once it has been successfully downloaded.
 
     .EXAMPLE
-    Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -Force
+        Invoke-DeeplTranslateFile InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>"
 
-    This example shows how to translate multiple files, overwriting any existing files in the output path.
+        This example shows how to translate multiple files.
+
+    .EXAMPLE
+        Invoke-DeeplTranslateFile -InputFile C:\Temp\SourceDoc.docx -OutputPath C:\Temp\Output -SourceLanguage "EN" -TargetLanguage "DE" -ApiKey "<MyApiKey>" -Force
+
+        This example shows how to translate multiple files, overwriting any existing files in the output path.
 
     .INPUTS
-    System.IO.FileInfo for parameter 'InputFile'
+        System.IO.FileInfo for parameter 'InputFile'
 
     .OUTPUTS
-    System.IO.FileInfo for each output file generated.
+        System.IO.FileInfo for each output file generated.
 
     .NOTES
-    Author:     Dieter Koch
-    Email:      diko@admins-little-helper.de
+        Author:     Dieter Koch
+        Email:      diko@admins-little-helper.de
 
     .LINK
-    https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Invoke-DeeplTranslateFile.txt
+        https://github.com/admins-little-helper/DeeplTranslate/blob/main/Help/Invoke-DeeplTranslateFile.txt
 
     #>
 
@@ -144,7 +143,7 @@ function Invoke-DeeplTranslateFile {
                 if ($_ -notmatch "(\.docx|\.pptx|\.pdf|\.htm|\.html|\.txt)") {
                     throw "The file specified in the InputFile parameter must be one of these types: .docx, .pptx, .pdf, .htm, .html, .txt"
                 }
-                return $true 
+                return $true
             })]
         [Parameter(Mandatory = $true, ValueFromPipeline)]
         [string[]]
@@ -159,7 +158,7 @@ function Invoke-DeeplTranslateFile {
                 if (-not (Test-Path -Path $_ -PathType Container) ) {
                     throw "The Path argument must be a folder. File paths are not allowed."
                 }
-                return $true 
+                return $true
             })]
         [Parameter(Mandatory = $true)]
         [System.IO.FileInfo]
@@ -188,21 +187,21 @@ function Invoke-DeeplTranslateFile {
         [string]
         $ApiKey
     )
-    
+
     # Use dynamic parameters for source and target language to either choose the language from a predefined static list
     #  or retrieve the list of supported languages from the DeepL Api.
     DynamicParam {
         # Set the dynamic parameters name.
         $ParamSourceLang = 'SourceLanguage'
         $ParamTargetLang = 'TargetLanguage'
-        
+
         # Create the dictionary.
         $RuntimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
 
         # Create the collection of attributes.
         $ParamSourceAttributeCollection = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
         $ParamTargetAttributeCollection = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
-        
+
         # Create and set the parameters attributes.
         $ParamSourceAttribute = New-Object System.Management.Automation.ParameterAttribute
         $ParamSourceAttribute.Mandatory = $false
@@ -260,7 +259,7 @@ function Invoke-DeeplTranslateFile {
         }
         $TargetLanguage = $PsBoundParameters[$ParamTargetLang][0]
         Write-Verbose -Message "Setting source language to $TargetLanguage"
-        
+
         # Build the body parameters as hashtable. Other properties are added later depending on the parameter values specified when the function is called.
         $Body = @{
             auth_key    = $ApiKey
@@ -279,14 +278,14 @@ function Invoke-DeeplTranslateFile {
         [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
         $BaseUri = Get-DeeplApiUri -ApiKey $ApiKey
-  
+
         $ProcessCount = 0
     }
 
     process {
         $ProcessCount++
         Write-Verbose -Message "ProcessCount: $ProcessCount"
-        
+
         if ($OpenTranslatedFile.IsPresent -and $InputFile.Count -gt 5) {
             Write-Warning -Message "Number of input files exceeds the limit of 5. No file will be opened."
         }
@@ -349,12 +348,12 @@ function Invoke-DeeplTranslateFile {
                 $TimeOutOccured = $false
                 $TimeOutAfterSeconds = 60
                 $Timer = [System.Diagnostics.Stopwatch]::new()
-                $Timer.Start()                    
+                $Timer.Start()
 
                 do {
                     # Check if the request already timed out.
                     if ($Timer.ElapsedMilliseconds / 1000 -gt $TimeOutAfterSeconds) {
-                        $TimeOutOccured = $true 
+                        $TimeOutOccured = $true
                     }
                     else {
                         # Set parameters for the Invoke-RestMethod cmdlet.
@@ -387,7 +386,7 @@ function Invoke-DeeplTranslateFile {
                                     Write-Verbose -Message "Translation completed."
                                     #$StatusResponse
                                 }
-                            }                        
+                            }
                         }
                     }
                 } while ($StatusResponse.status -eq 'translating' -or $TimeOutOccured)
@@ -451,14 +450,14 @@ function Invoke-DeeplTranslateFile {
 ################################################################################
 ################################################################################
 #
-#        ______           _          __    _____           _       _   
-#       |  ____|         | |        / _|  / ____|         (_)     | |  
-#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_ 
+#        ______           _          __    _____           _       _
+#       |  ____|         | |        / _|  / ____|         (_)     | |
+#       | |__   _ __   __| |   ___ | |_  | (___   ___ _ __ _ _ __ | |_
 #       |  __| | '_ \ / _` |  / _ \|  _|  \___ \ / __| '__| | '_ \| __|
-#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_ 
+#       | |____| | | | (_| | | (_) | |    ____) | (__| |  | | |_) | |_
 #       |______|_| |_|\__,_|  \___/|_|   |_____/ \___|_|  |_| .__/ \__|
-#                                                           | |        
-#                                                           |_|        
+#                                                           | |
+#                                                           |_|
 ################################################################################
 ################################################################################
 # created with help of http://patorjk.com/software/taag/

@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 1.4.0 - 2023-08-02
+
+* Updated list of supported source and target languages.
+* Added 'ShoudlProcess' to function 'New-DeeplGlossary' to support '-WhatIf' parameter.
+* Cosmetic changes.
+
 ## Version 1.3.1 - 2023-05-12
 
 * Fixed issue in showing 'UsagePercent'.
