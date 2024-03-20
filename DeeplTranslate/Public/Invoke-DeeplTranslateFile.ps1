@@ -376,6 +376,10 @@ function Invoke-DeeplTranslateFile {
                                     Write-Verbose -Message "Estimated seconds remaining for document translation: $($StatusResponse.seconds_remaining)"
                                     Start-Sleep -Seconds 1
                                 }
+                                'queued' {
+                                    Write-Verbose -Message "Waiting for translation"
+                                    Start-Sleep -Seconds 1
+                                }
                                 'error' {
                                     if (($StatusResponse | Get-Member -MemberType NoteProperty | Select-Object -Property Name).Name -contains "message") {
                                         Write-Error -Message "Job status: $($StatusResponse.message)"
@@ -389,7 +393,7 @@ function Invoke-DeeplTranslateFile {
                             }
                         }
                     }
-                } while ($StatusResponse.status -eq 'translating' -or $TimeOutOccured)
+                } while ($StatusResponse.status -eq 'translating' -or $StatusResponse.status -eq 'queued' -or $TimeOutOccured)
 
                 # when the document translation is done, try to download the resulting document.
                 if ($StatusResponse.status -eq 'done') {
