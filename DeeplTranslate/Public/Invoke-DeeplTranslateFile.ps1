@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.2.0
 
 .GUID 93cf5a1d-2793-4645-8937-36f24b2de164
 
@@ -31,6 +31,8 @@
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
 
+    1.2.0
+    Added fix submitted by MAng0-1: Extended Invoke-DeeplTranslateFile with handling for 'queued' status response
 #>
 
 

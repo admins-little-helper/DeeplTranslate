@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 1.4.1 - 2024-03-20
+
+* Added fix submitted by MAng0-1: Extended Invoke-DeeplTranslateFile with handling for 'queued' status response.
+
 ## Version 1.4.0 - 2023-08-02
 
 * Updated list of supported source and target languages.
