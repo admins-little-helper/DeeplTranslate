@@ -1,6 +1,6 @@
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.1.1
 
 .GUID 30f094cf-7b81-41b8-9820-cc161ea5a8ee
 
@@ -30,6 +30,10 @@
 
     1.1.0
     Updated way to get DeepL Api Uri and Http Status codes.
+
+    1.1.1
+    Removed line to change console encoding because it was not necessary.
+    Corrected a typo in the codepage number when detecting the default code page.
 
 #>
 
@@ -250,9 +254,6 @@ function Invoke-DeeplTranslateText {
         # Set the content type to url encoded form data.
         $ContentType = "application/x-www-form-urlencoded; charset=utf-8"
 
-        # Set the output encoding to UTF8 so that this function shows the same results for special characters in PowerShell 5.1 and in PowerShell 6.x or later.
-        [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
-
         $BaseUri = Get-DeeplApiUri -ApiKey $ApiKey
     }
 
@@ -287,7 +288,7 @@ function Invoke-DeeplTranslateText {
                         1252 {
                             [Text.Encoding]::UTF8.GetString([Text.Encoding]::GetEncoding(28591).GetBytes($Response.translations.text))
                         }
-                        650001 {
+                        65001 {
                             $Response.translations.text
                         }
                         default {
