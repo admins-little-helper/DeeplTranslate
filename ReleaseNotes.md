@@ -1,5 +1,10 @@
 # Release Notes
 
+## Version 1.4.2 - 2024-03-27
+
+* Added fix for issue #2 submitted by wendefeuer: Removed unnecessary line of code for changing the console encoding.
+* Corrected a typo in the codepage number when detecting the default code page.
+
 ## Version 1.4.1 - 2024-03-20
 
 * Added fix submitted by MAng0-1: Extended Invoke-DeeplTranslateFile with handling for 'queued' status response.
