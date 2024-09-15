@@ -1,5 +1,9 @@
 # Release Notes
 
+## Version 1.4.3 - 2024-09-15
+
+* Updated list of supported source and target languages.
+
 ## Version 1.4.2 - 2024-03-27
 
 * Added fix for issue #2 submitted by wendefeuer: Removed unnecessary line of code for changing the console encoding.
