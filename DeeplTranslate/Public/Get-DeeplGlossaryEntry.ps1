@@ -8,7 +8,7 @@
 
 .COMPANYNAME
 
-.COPYRIGHT (c) 2022 All rights reserved.
+.COPYRIGHT (c) 2022-2024 All rights reserved.
 
 .TAGS DeepL Translate Translation
 
