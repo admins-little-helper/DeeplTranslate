@@ -153,6 +153,7 @@ function Get-DeeplSupportedLanguage {
         TR       Turkish                             False
         UK       Ukrainian                           False
         ZH       Chinese (simplified)                False
+        ZH-HANS  Chinese (simplified)                False
 
         This example shows how to retrieve a list of supported target languages.
 
@@ -199,6 +200,7 @@ function Get-DeeplSupportedLanguage {
         TR       Turkish                             False
         UK       Ukrainian                           False
         ZH       Chinese (simplified)                False
+        ZH-HANS  Chinese (simplified)                False
 
         This example shows how to retrieve a list of supported target languages and showing verbose output.
 
@@ -543,6 +545,11 @@ function Get-DeeplSupportedLanguage {
         }
         [PSCustomObject]@{
             "language"           = "ZH"
+            "name"               = "Chinese (simplified)"
+            "supports_formality" = $false
+        }
+        [PSCustomObject]@{
+            "language"           = "ZH-HANS"
             "name"               = "Chinese (simplified)"
             "supports_formality" = $false
         }
