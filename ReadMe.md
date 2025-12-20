@@ -2,8 +2,15 @@
 
 ## About
 
-This PowerShell module uses the DeepL Api service to translate text or files. It also allows to manage glossaries and retrieve usage information.
-For more information about the DeepL service refert to <https://www.deepl.com/pro-api>.
+This is an unofficial PowerShell module using the DeepL API service to translate text or files. It also allows to manage glossaries and retrieve usage information.
+For more information about the DeepL service refer to <https://www.deepl.com/pro-api>.
+
+## Disclaimer
+
+DeepL API is a service provided by DeepL SE. 
+This PowerShell module is an independent, community‑developed project and is not affiliated with, endorsed by, or sponsored by DeepL SE. 
+All product names, trademarks, and registered trademarks are the property of their respective owners. 
+References to DeepL API are for identification and compatibility purposes only.
 
 ## Functions in this module
 
